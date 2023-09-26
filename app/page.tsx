@@ -24,8 +24,10 @@ export default async function Home() {
           Enter the expenses from your Snowboarding Trip below:
         </h1>
         <div className="grid grid-cols-2 w-fit gap-4 items-center">
-          <span className="text-lg font-medium">Choose your currency:</span>
-          <select className="select"></select>
+          <span className="text-lg font-medium">
+            Enter our 3-letter currency code:
+          </span>
+          <input className="input uppercase" type="text" maxLength={3} />
           <span className="text-lg font-medium">
             Choose your travel policy:
           </span>
