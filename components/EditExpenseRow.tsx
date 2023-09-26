@@ -15,17 +15,27 @@ const EditExpenseRow = ({
     <>
       <tr>
         <td>
-          <Field type="date" name="expenseDate" className="input" required />
+          <Field
+            type="date"
+            name="expenseDateString"
+            className="input"
+            required
+          />
         </td>
         <td>
-          <Field type="text" name="aim" className="w-full">
-            {({ field, form, meta }: any) => (
-              <select className="select" required {...field}>
+          <Field as="select" name="category" required className="w-full select">
+            {Object.keys(ExpenseCategory).map((category) => (
+              <option value={category} key={category}>
+                {category}
+              </option>
+            ))}
+            {/* {({ field, form, meta }: any) => (
+              <select className="select" name="category" required {...field}>
                 {Object.keys(ExpenseCategory).map((category) => (
                   <option key={category}>{category}</option>
                 ))}
               </select>
-            )}
+            )} */}
           </Field>
         </td>
         <td>
@@ -41,6 +51,7 @@ const EditExpenseRow = ({
                   min={0.01}
                   required
                   {...field}
+                  onClick={(e) => e.currentTarget.select()}
                   step={0.01}
                 />
               )}

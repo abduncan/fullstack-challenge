@@ -7,15 +7,7 @@ import { Expense } from "@prisma/client";
 
 export default async function Home() {
   const travelPolicies = [defaultTravelPolicy, unlimitedAirfareTravelPolicy];
-  const expenses: Expense[] = [
-    {
-      id: "0",
-      expenseDate: new Date(),
-      category: "airfare",
-      description: "",
-      amount: 0,
-    },
-  ];
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between text-sm space-y-10">
@@ -36,7 +28,7 @@ export default async function Home() {
             ))}
           </select>
         </div>
-        <ExpensesTable expenses={expenses} />
+        <ExpensesTable />
       </div>
     </main>
   );
