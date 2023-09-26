@@ -10,15 +10,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Expense {
-  id          Int      @id @default(autoincrement())
-  amount      Float
-  category    ExpenseCategory @relation(fields: [categoryId], references: [id])
-  categoryId  Int
+enum ExpenseCategory {
+  mileage
+  lodging
+  rentalCar
+  meals
+  internet
+  rideshare
+  airfare
 }
 
-model ExpenseCategory {
-  id        Int      @id @default(autoincrement())
-  name      String
-  expenses  Expense[]
+model Expense {
+  id          Int             @id @default(autoincrement())
+  amount      Float
+  category    ExpenseCategory
+  expenseDate DateTime
+  description String
 }

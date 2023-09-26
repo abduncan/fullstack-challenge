@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.table>tbody>tr>td, .table>tbody>tr>th {
+  @apply border-gray-300
+}
