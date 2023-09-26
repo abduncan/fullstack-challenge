@@ -10,11 +10,11 @@ export default async function Home() {
   const travelPolicies = [defaultTravelPolicy, unlimitedAirfareTravelPolicy];
   const expenses: Expense[] = [
     {
-      id: 1,
+      id: 0,
       expenseDate: new Date(),
       category: "airfare",
-      description: "Lunch",
-      amount: 10.0,
+      description: "",
+      amount: 0,
     },
   ];
   return (
