@@ -69,7 +69,7 @@ const ExpensesTable = ({ expenses }: { expenses: Expense[] }) => {
                   <th className="w-[200px]">Category</th>
                   <th>Description</th>
                   <th className="w-[150px]">Amount</th>
-                  <th></th>
+                  <th className="w-[50px]"></th>
                 </tr>
               </thead>
               <tbody>{formatExpenses(exp, resetForm)}</tbody>
