@@ -69,7 +69,7 @@ const ExpensesTable = ({ expenses }: { expenses: Expense[] }) => {
                   <th className="w-[200px]">Category</th>
                   <th>Description</th>
                   <th className="w-[150px]">Amount</th>
-                  <th className="w-[50px]"></th>
+                  <th className="w-[104px]"></th>
                 </tr>
               </thead>
               <tbody>{formatExpenses(exp, resetForm)}</tbody>
@@ -87,7 +87,7 @@ const ExpensesTable = ({ expenses }: { expenses: Expense[] }) => {
             setExp([
               ...exp,
               {
-                id: "",
+                id: "0",
                 expenseDate: new Date(),
                 category: "airfare",
                 description: "",
