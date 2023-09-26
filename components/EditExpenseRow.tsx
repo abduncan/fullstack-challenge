@@ -9,7 +9,7 @@ const EditExpenseRow = ({
   onDelete,
 }: {
   expense: Expense;
-  onDelete: (id: number) => void;
+  onDelete: (id: string) => void;
 }) => {
   return (
     <>
@@ -33,7 +33,18 @@ const EditExpenseRow = ({
         </td>
         <td>
           <div className="flex justify-between space-x-2">
-            <Field type="number" name="amount" className="input" min={0.01} required />
+            <Field name="amount">
+              {({ field, form, meta }: any) => (
+                <input
+                  className="input"
+                  type="number"
+                  min={0.01}
+                  required
+                  {...field}
+                  step={0.01}
+                />
+              )}
+            </Field>
             <div className="flex space-x-1">
               <button
                 type="submit"

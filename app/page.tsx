@@ -1,4 +1,3 @@
-import ExpenseForm from "@/components/ExpenseForm";
 import ExpensesTable from "@/components/ExpensesTable";
 import {
   defaultTravelPolicy,
@@ -10,7 +9,7 @@ export default async function Home() {
   const travelPolicies = [defaultTravelPolicy, unlimitedAirfareTravelPolicy];
   const expenses: Expense[] = [
     {
-      id: 0,
+      id: "0",
       expenseDate: new Date(),
       category: "airfare",
       description: "",
@@ -37,9 +36,7 @@ export default async function Home() {
             ))}
           </select>
         </div>
-        <ExpenseForm>
-          <ExpensesTable expenses={expenses} />
-        </ExpenseForm>
+        <ExpensesTable expenses={expenses} />
       </div>
     </main>
   );
