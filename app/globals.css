@@ -29,3 +29,14 @@ body {
 .table>tbody>tr>td, .table>tbody>tr>th {
   @apply border-gray-300
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
