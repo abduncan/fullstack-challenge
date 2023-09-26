@@ -4,6 +4,10 @@ import DisplayExpenseRow from "./DisplayExpenseRow";
 import EditExpenseRow from "./EditExpenseRow";
 import { useState } from "react";
 
+const sumExpenses = (expenses: Expense[]) => {
+  return expenses.reduce((acc, expense) => acc + expense.amount, 0);
+};
+
 const ExpensesTable = ({ expenses }: { expenses: Expense[] }) => {
   const [exp, setExp] = useState<Expense[]>(expenses);
   const formatExpenses = (expenses: Expense[]) => {
@@ -13,12 +17,16 @@ const ExpensesTable = ({ expenses }: { expenses: Expense[] }) => {
           key={expense.id}
           expense={expense}
           onDelete={async (id: number) => {
-            if (id !== 0) {
-              await fetch(`/api/expense/${id}`, {
-                method: "DELETE",
+            const result = [...exp.filter((e) => e.id !== id)];
+            if (result.length === 0)
+              result.push({
+                id: 0,
+                expenseDate: new Date(),
+                category: "airfare",
+                description: "",
+                amount: 0,
               });
-            }
-            setExp(exp.filter((e) => e.id !== id));
+            setExp([...result]);
           }}
         />
       ) : (
@@ -59,6 +67,15 @@ const ExpensesTable = ({ expenses }: { expenses: Expense[] }) => {
           }}
         >
           Add Expense
+        </button>
+      </div>
+      <div className="divider"></div>
+      <div className="flex justify-end text-lg font-medium">
+        Total Expenses: ${sumExpenses(exp)}
+      </div>
+      <div className="flex justify-end">
+        <button type="button" className="btn btn-primary">
+          Submit Expenses
         </button>
       </div>
     </div>
