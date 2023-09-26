@@ -45,22 +45,24 @@ const EditExpenseRow = ({
                 />
               )}
             </Field>
-            <div className="flex space-x-1">
-              <button
-                type="submit"
-                className="btn btn-ghost p-2 hover:dark:bg-gray-800 rounded"
-              >
-                <CheckIcon />
-              </button>
+          </div>
+        </td>
+        <td>
+          <div className="flex space-x-1 justify-end">
+            <button
+              type="submit"
+              className="btn btn-ghost p-2 hover:dark:bg-gray-800 rounded"
+            >
+              <CheckIcon />
+            </button>
 
-              <button
-                type="button"
-                className="btn btn-ghost p-2 hover:dark:bg-gray-800 rounded"
-                onClick={() => onDelete(expense.id)}
-              >
-                <TrashIcon />
-              </button>
-            </div>
+            <button
+              type="button"
+              className="btn btn-ghost p-2 hover:dark:bg-gray-800 rounded"
+              onClick={() => onDelete(expense.id)}
+            >
+              <TrashIcon />
+            </button>
           </div>
         </td>
       </tr>
