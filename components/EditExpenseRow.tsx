@@ -15,8 +15,7 @@ const EditExpenseRow = ({
     <>
       <tr>
         <td>
-          <Field type="date" name="expenseDate" className="input" />
-          {/* <input type="date" className="input" /> */}
+          <Field type="date" name="expenseDate" className="input" required />
         </td>
         <td>
           <Field type="text" name="aim" className="w-full">
@@ -30,11 +29,11 @@ const EditExpenseRow = ({
           </Field>
         </td>
         <td>
-          <Field type="text" name="description" className="input" />
+          <Field type="text" name="description" className="input" required />
         </td>
         <td>
           <div className="flex justify-between space-x-10">
-            <Field type="number" name="amount" className="input" min={0.01} />
+            <Field type="number" name="amount" className="input" min={0.01} required />
             <div className="flex space-x-2">
               <button
                 type="submit"
