@@ -1,7 +1,6 @@
 import ExpenseForm from "@/components/ExpenseForm";
 import ExpensesTable from "@/components/ExpensesTable";
 import {
-  TravelPolicy,
   defaultTravelPolicy,
   unlimitedAirfareTravelPolicy,
 } from "@/services/travel-policies";
