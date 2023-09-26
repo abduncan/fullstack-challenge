@@ -32,9 +32,9 @@ const EditExpenseRow = ({
           <Field type="text" name="description" className="input" required />
         </td>
         <td>
-          <div className="flex justify-between space-x-10">
+          <div className="flex justify-between space-x-2">
             <Field type="number" name="amount" className="input" min={0.01} required />
-            <div className="flex space-x-2">
+            <div className="flex space-x-1">
               <button
                 type="submit"
                 className="btn btn-ghost p-2 hover:dark:bg-gray-800 rounded"

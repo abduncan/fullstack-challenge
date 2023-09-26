@@ -31,10 +31,10 @@ const ExpensesTable = ({ expenses }: { expenses: Expense[] }) => {
       <table className="table w-full">
         <thead>
           <tr>
-            <th className="w-fit">Expense Date</th>
-            <th className="w-fit">Category</th>
+            <th className="w-[200px]">Expense Date</th>
+            <th className="w-[200px]">Category</th>
             <th>Description</th>
-            <th className="w-fit">Amount</th>
+            <th className="w-[220px]">Amount</th>
           </tr>
         </thead>
         <tbody>{formatExpenses(exp)}</tbody>
