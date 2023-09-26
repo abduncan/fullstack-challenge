@@ -1,9 +1,14 @@
 import ExpenseForm from "@/components/ExpenseForm";
 import ExpensesTable from "@/components/ExpensesTable";
+import {
+  TravelPolicy,
+  defaultTravelPolicy,
+  unlimitedAirfareTravelPolicy,
+} from "@/services/travel-policies";
 import { Expense } from "@prisma/client";
-import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const travelPolicies = [defaultTravelPolicy, unlimitedAirfareTravelPolicy];
   const expenses: Expense[] = [
     {
       id: 1,
@@ -19,9 +24,17 @@ export default function Home() {
         <h1 className="text-xl">
           Enter the expenses from your Snowboarding Trip below:
         </h1>
-        <div className="flex space-x-4 items-center">
-          <span className="text-lg font-medium">Choose your currency</span>
+        <div className="grid grid-cols-2 w-fit gap-4 items-center">
+          <span className="text-lg font-medium">Choose your currency:</span>
           <select className="select"></select>
+          <span className="text-lg font-medium">
+            Choose your travel policy:
+          </span>
+          <select className="select">
+            {travelPolicies.map((policy) => (
+              <option key={policy.id}>{policy.name}</option>
+            ))}
+          </select>
         </div>
         <ExpenseForm>
           <ExpensesTable expenses={expenses} />
