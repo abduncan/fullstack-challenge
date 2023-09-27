@@ -26,7 +26,7 @@ const sumExpenses = (expenses: Expense[]) => {
   return expenses.reduce((acc, expense) => acc + expense.amount, 0);
 };
 
-const ExpensesTable = () => {
+const ExpensesTable = ({ onAdd }: { onAdd: (total: number) => void }) => {
   const [editId, setEditId] = useState("");
   const [exp, setExp] = useState<ExpenseFormValues[]>([initialValues]);
 
@@ -76,6 +76,7 @@ const ExpensesTable = () => {
           };
           actions.resetForm();
           setExp([...existingExpenses, newExpense]);
+          onAdd(sumExpenses([...existingExpenses, newExpense]));
         }}
       >
         {({ resetForm, setValues }) => (
@@ -107,15 +108,6 @@ const ExpensesTable = () => {
           }}
         >
           Add Expense
-        </button>
-      </div>
-      <div className="divider"></div>
-      <div className="flex justify-end text-lg font-medium">
-        Total Expenses: ${sumExpenses(exp)}
-      </div>
-      <div className="flex justify-end">
-        <button type="button" className="btn btn-primary">
-          Submit Expenses
         </button>
       </div>
     </div>
