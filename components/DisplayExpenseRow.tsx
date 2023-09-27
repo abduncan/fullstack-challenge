@@ -15,7 +15,7 @@ const DisplayExpenseRow = ({
       <td>{expense.category.toString()}</td>
       <td>{expense.description}</td>
       <td>
-        <span>${expense.amount.toFixed(2)}</span>
+        <span>{expense.amount.toFixed(2)}</span>
       </td>
       <td>
         <div className="flex justify-end">
