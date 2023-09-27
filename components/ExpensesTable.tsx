@@ -26,7 +26,11 @@ const sumExpenses = (expenses: Expense[]) => {
   return expenses.reduce((acc, expense) => acc + expense.amount, 0);
 };
 
-const ExpensesTable = ({ onAdd }: { onAdd: (total: number) => void }) => {
+const ExpensesTable = ({
+  onAdd,
+}: {
+  onAdd: (expenses: Expense[], total: number) => void;
+}) => {
   const [editId, setEditId] = useState("");
   const [exp, setExp] = useState<ExpenseFormValues[]>([initialValues]);
 
@@ -76,7 +80,10 @@ const ExpensesTable = ({ onAdd }: { onAdd: (total: number) => void }) => {
           };
           actions.resetForm();
           setExp([...existingExpenses, newExpense]);
-          onAdd(sumExpenses([...existingExpenses, newExpense]));
+          onAdd(
+            [...existingExpenses, newExpense],
+            sumExpenses([...existingExpenses, newExpense])
+          );
         }}
       >
         {({ resetForm, setValues }) => (
